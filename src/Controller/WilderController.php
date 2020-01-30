@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Wilder;
 use App\Form\WilderType;
 use App\Repository\WilderRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +19,15 @@ class WilderController extends AbstractController
     /**
      * @Route("/", name="wilder_index", methods={"GET"})
      */
-    public function index(WilderRepository $wilderRepository): Response
-    {
+    public function index(WilderRepository $wilderRepository,Request $request, PaginatorInterface $paginator)
+    { $wilders = $wilderRepository->findAll();
+
+    $wilders = $paginator->paginate(
+        $wilders,
+        $request->query->getInt('page',1),
+        5);
         return $this->render('wilder/index.html.twig', [
-            'wilders' => $wilderRepository->findAll(),
+            'wilders' => $wilders,
         ]);
     }
 

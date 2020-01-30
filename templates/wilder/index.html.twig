@@ -30,7 +30,8 @@
         {% else %}
                 <p colspan="4">no records found</p>
         {% endfor %}
-</div>
 
+</div>
+    {{ knp_pagination_render(wilders) }}
     <a href="{{ path('wilder_new') }}">Create new</a>
 {% endblock %}
