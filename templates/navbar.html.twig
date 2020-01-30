@@ -13,7 +13,7 @@
                 <a class="nav-link" href="{{ path('performance_index') }}">Performance</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link" href="{{ path('type_performance_index') }}">Type de performance</a>
             </li>
         </ul>
         <span class="navbar-text">
@@ -21,3 +21,4 @@
     </span>
     </div>
 </nav>
+{% include 'flash.html.twig' %}

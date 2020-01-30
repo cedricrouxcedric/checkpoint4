@@ -38,6 +38,10 @@ class WilderController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($wilder);
             $entityManager->flush();
+            $this->addFlash(
+                'success',
+                "Un Wilder vient d'etre ajouté à la liste."
+            );
 
             return $this->redirectToRoute('wilder_index');
         }
@@ -68,13 +72,19 @@ class WilderController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash(
+                'success',
+                "Votre modification a bien été prise en compte."
+            );
             return $this->redirectToRoute('wilder_index');
+
         }
+
 
         return $this->render('wilder/edit.html.twig', [
             'wilder' => $wilder,
             'form' => $form->createView(),
+
         ]);
     }
 
@@ -87,6 +97,10 @@ class WilderController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($wilder);
             $entityManager->flush();
+            $this->addFlash(
+                'danger',
+                "Un Wilder a été supprimé."
+            );
         }
 
         return $this->redirectToRoute('wilder_index');

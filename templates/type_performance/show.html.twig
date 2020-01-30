@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypePerformance{% endblock %}
+
+{% block body %}
+    {% include 'navbar.html.twig' %}
+    <h1>TypePerformance</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ type_performance.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ type_performance.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('type_performance_index') }}">back to list</a>
+
+    <a href="{{ path('type_performance_edit', {'id': type_performance.id}) }}">edit</a>
+
+    {{ include('type_performance/_delete_form.html.twig') }}
+{% endblock %}
