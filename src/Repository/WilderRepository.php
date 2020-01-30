@@ -18,7 +18,15 @@ class WilderRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Wilder::class);
     }
-
+    public function findallinfos()
+    {
+        $queryBuilder =  $this->createQueryBuilder('w')
+            -> innerJoin('w.performance','p')
+            ->innerJoin('t.type','t')
+            ->addSelect('w','p','t')
+            ->getQuery();
+        return $queryBuilder->execute();
+    }
     // /**
     //  * @return Wilder[] Returns an array of Wilder objects
     //  */

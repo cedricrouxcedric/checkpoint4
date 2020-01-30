@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ wilder.name }}{% endblock %}
+
+{% block body %}
+<h1 class="text-center">{{ wilder.name }}</h1>
+<div class="results">
+    <div class="card flex-column ">
+        <div class="text-center " >{{ include('wilder/_delete_form.html.twig') }}</div>
+
+        <img class="card-img-top tinypict " src="{{ wilder.picture }}" alt="Card image cap">
+        <div class="card-body">
+            <h4 class="card-title text-center">{{ wilder.name }}</h4>
+            <h5 class="text-center">{{ (wilder.performance.name) }}</h5>
+            <img class="card-img-top tinypict " src="{{ wilder.performance.picture }}" alt="Card image cap">
+            <h5 class="text-center">{{ (wilder.performance.type.name) }}</h5>
+            <a href="{{ path('wilder_show', {'id': wilder.id }) }}" class="btn btn-light">show</a>
+            <a href="{{ path('wilder_edit', {'id': wilder.id}) }}">edit</a>
+        </div>
+        <div class="text-center"><a  href="{{ path('wilder_index') }}">back to list</a></div>
+    </div>
+
+
+
+
+
+</div>
+
+    {% endblock %}

@@ -3,7 +3,6 @@
   background-repeat: repeat-y;
   background-color: gray;
 }
-
 .titlebase {
   height: 100%;
   font-family: 'Amatic SC', cursive;
@@ -15,8 +14,15 @@
   margin-bottom: 0px;
   color: darkred;
 }
-
-
-p {
-  color: blue;
+.prestation-results {
+  min-width: 288px;
+  max-width: 1200px;
+  background-color: green;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
+
+
+
