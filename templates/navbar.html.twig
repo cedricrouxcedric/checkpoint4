@@ -1,7 +1,7 @@
-
 <nav class="bg-light navbar navbar-expand-lg navbar-light text-white-50 ">
     <a class="navbar-brand" href="/">Wild circus</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
@@ -17,8 +17,13 @@
             </li>
         </ul>
         <span class="navbar-text">
-      Navbar text with an inline element
-    </span>
+            {% if app.user %}
+                {{ app.user.username }}
+                <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+{% else %}
+                <a href="{{ path('app_login') }}"> Se connecter</a>
+            {% endif %}</span>
+
     </div>
 </nav>
 {% include 'flash.html.twig' %}

@@ -22,9 +22,11 @@ class Ticket
     private $spectacle;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="ticket")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="tickets")
      */
     private $user;
+
+
 
     public function getId(): ?int
     {
@@ -54,4 +56,6 @@ class Ticket
 
         return $this;
     }
+
+
 }

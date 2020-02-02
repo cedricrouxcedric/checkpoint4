@@ -19,7 +19,7 @@
 
                     <h5 class="text-center">{{ (performance.type.name) }}</h5>
                     <a href="{{ path('performance_show', {'id': performance.id })}}" class="btn btn-light">show</a>
-                    <a href="{{ path('performance_edit', {'id': performance.id}) }}">edit</a>
+                    {% if is_granted('ROLE_ADMIN') %}<a href="{{ path('performance_edit', {'id': performance.id}) }}">edit</a>{% endif %}
                 </div>
             </div>
 
@@ -30,5 +30,5 @@
         {% endfor %}
         </div>
 
-    <a href="{{ path('performance_new') }}">Create new</a>
+    {% if is_granted('ROLE_ADMIN') %}  <a href="{{ path('performance_new') }}">Create new</a>{% endif %}
 {% endblock %}
