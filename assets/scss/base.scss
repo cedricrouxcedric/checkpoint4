@@ -22,8 +22,19 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-#canvas{
-  background: greenyellow;
+canvas{
+  background-color: greenyellow;
+}
+.table{
+  top: 150px;
+  position: absolute;
+}
+.scoreboard {
+  h2{
+    position: absolute;
+    bottom: 50px;
+    color: red;
+  }
 }
 
 

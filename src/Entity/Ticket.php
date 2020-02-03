@@ -38,7 +38,7 @@ class Ticket
         return $this->spectacle;
     }
 
-    public function setSpectacle(?Spectacle $spectacle): self
+    public function setSpectacle(Spectacle $spectacle)
     {
         $this->spectacle = $spectacle;
 
@@ -50,7 +50,7 @@ class Ticket
         return $this->user;
     }
 
-    public function setUser(?User $user): self
+    public function setUser(User $user)
     {
         $this->user = $user;
 

@@ -66,7 +66,9 @@ function collisionDetection() { // fonction detection de collision avec une briq
                     score++; // incrementation de la var score
                     if (score == brickColumnCount*brickRowCount) {
                         score ="VICTORY";
-                        document.location.reload();
+                        dy = 0 ;
+                        dx = 0 ;
+                        location.replace("/win")
                         clearInterval(interval); // necessaire pour chrome pour finir le jeu
                     }
                 }
@@ -163,4 +165,4 @@ function draw() { // dessiner tout
     x += dx;
     y += dy;
 }
-setInterval(draw, 1000/60); // appelle la fonction 60 fois par seconde
+setInterval(draw, 1000/70); // appelle la fonction 70 fois par seconde
