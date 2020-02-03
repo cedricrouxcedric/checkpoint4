@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypePerformance index{% endblock %}
+
+{% block body %}
+    {% include 'navbar.html.twig' %}
+    <h1>TypePerformance index</h1>
+<div class="results">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_performance in type_performances %}
+            <tr>
+                <td>{{ type_performance.id }}</td>
+                <td>{{ type_performance.name }}</td>
+                <td>
+                    <a href="{{ path('type_performance_show', {'id': type_performance.id}) }}">show</a>
+                    {% if is_granted('ROLE_ADMIN') %} <a href="{{ path('type_performance_edit', {'id': type_performance.id}) }}">edit</a>{% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    {% if is_granted('ROLE_ADMIN') %} <a href="{{ path('type_performance_new') }}">Create new</a>{% endif %}
+{% endblock %}

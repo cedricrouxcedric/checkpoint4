@@ -1,0 +1,31 @@
+{% include 'base.html.twig' %}
+{% block body %}
+{% include 'navbar.html.twig' %}
+    <main class="scoreboard">
+<h1 class="text-center">Leaderboard</h1>
+
+        <img class="bgbody" src="https://www.ville-sens.fr/wp-content/uploads/2018/01/aff-A3-_ecole-cirque.jpg">
+        <p>Pour l'instant c'est :{{ users[0].username }} qui gagne la place gratuite avec {{ users[0].score }} points</p><p></p>
+        <table class="table scoreboard">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Score</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for user in users %}
+    <tr>
+        <th >{{ (loop.index) }}</th>
+        <td>{{ user.username }}</td>
+        <td>{{user.score}}</td>
+    </tr>
+    {% if loop.index == 1  %}
+        <h2 >Pour l'instant c'est :{{ user.username }} qui gagne la place gratuite avec {{ user.score }} points</h2>
+    {% endif %}
+{% endfor %}
+    </tbody>
+</table>
+    </main>
+{% endblock %}

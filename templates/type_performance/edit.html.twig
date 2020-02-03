@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TypePerformance{% endblock %}
+
+{% block body %}
+    {% include 'navbar.html.twig' %}
+    <h1>Edit TypePerformance</h1>
+
+    {{ include('type_performance/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('type_performance_index') }}">back to list</a>
+
+    {{ include('type_performance/_delete_form.html.twig') }}
+{% endblock %}
