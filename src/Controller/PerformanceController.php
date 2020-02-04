@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Performance;
 use App\Form\PerformanceType;
 use App\Repository\PerformanceRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,10 +20,15 @@ class PerformanceController extends AbstractController
     /**
      * @Route("/", name="performance_index", methods={"GET"})
      */
-    public function index(PerformanceRepository $performanceRepository): Response
-    {
-        return $this->render('performance/index.html.twig', [
-            'performances' => $performanceRepository->findAll(),
+    public function index(PerformanceRepository $performanceRepository,Request $request, PaginatorInterface $paginator): Response
+    {   $performances = $performanceRepository->findAll();
+        $performances = $paginator->paginate(
+            $performances,
+            $request->query->getInt('page',1),
+            5);
+
+         return $this->render('performance/index.html.twig', [
+            'performances' => $performances,
         ]);
     }
 
