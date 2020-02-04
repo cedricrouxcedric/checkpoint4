@@ -1,34 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}performance index{% endblock %}
-
 {% block body %}
     {% include 'navbar.html.twig' %}
     <h1>Performance index</h1>
-
-
         <div class="results">
         {% for performance in performances %}
-
             <div class="card" style="width: 18rem;">
-
                 <div class="card-body">
                     <h4 class="card-title text-center">{{performance.name}}</h4>
+                    <div class="text-center">
                     <img class="card-img-top tinypict" src="{{ performance.picture }}" alt="Card image cap">
-
-
+                    </div>
                     <h5 class="text-center">{{ (performance.type.name) }}</h5>
                     <a href="{{ path('performance_show', {'id': performance.id })}}" class="btn btn-light">show</a>
                     {% if is_granted('ROLE_ADMIN') %}<a href="{{ path('performance_edit', {'id': performance.id}) }}">edit</a>{% endif %}
                 </div>
             </div>
-
         {% else %}
-
                 <p colspan="4">no records found</p>
-
         {% endfor %}
-        </div>
+        </div><div>{{ knp_pagination_render(performances) }}</div>
 
     {% if is_granted('ROLE_ADMIN') %}  <a href="{{ path('performance_new') }}">Create new</a>{% endif %}
+
+
+{% block footer %}
+
+{% endblock %}
 {% endblock %}

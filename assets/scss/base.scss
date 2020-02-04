@@ -21,20 +21,30 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  .tinypict{
+    justify-content: center;
+  }
 }
 canvas{
-  background-color: greenyellow;
+  background-color: #EFD807;
+}
+.center {
+  margin: 0 auto;
+  width: 500px;
+  padding: 20px
 }
 .table{
   top: 150px;
   position: absolute;
 }
-.scoreboard {
-  h2{
-    position: absolute;
-    bottom: 50px;
-    color: red;
-  }
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
 }
 
 

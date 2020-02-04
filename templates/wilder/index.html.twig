@@ -12,14 +12,18 @@
 
 
 
-            <div class="card" style="width: 18rem;">
+            <div class="card" >
 
-                <div class="card-body">
+                <div class="card " style="width: 18rem;">
                     <h4 class="card-title text-center">{{wilder.name}}</h4>
+                    <div class="text-center">
                     <img class="card-img-top tinypict" src="{{ wilder.picture }}" alt="Card image cap">
-                    <h5 class="text-center">{{ (wilder.performance.name) }}</h5>
+                    </div>
+                        <h5 class="text-center">{{ (wilder.performance.name) }}</h5>
+                    <div class="text-center">
                     <img class="card-img-top tinypict " src="{{ wilder.performance.picture }}" alt="Card image cap">
-                    <h5 class="text-center">{{ (wilder.performance.type.name) }}</h5>
+                    </div>
+                        <h5 class="text-center">{{ (wilder.performance.type.name) }}</h5>
                     <a href="{{ path('wilder_show', {'id': wilder.id })}}" class="btn btn-light">show</a>
                     {% if is_granted('ROLE_ADMIN') %}  <a href="{{ path('wilder_edit', {'id': wilder.id}) }}">edit</a>{% endif %}
                 </div>

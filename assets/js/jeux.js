@@ -113,7 +113,7 @@ function drawBricks() { // declaration de la fonction dessine les briques
                 bricks[c][r].y = brickY; // atribution de la valeur a la position y de la brique bricks[c][r]
                 ctx.beginPath(); // debut du dessin de la brique
                 ctx.rect(brickX, brickY, brickWidth, brickHeight); // definition de la forme de la brique
-                ctx.fillStyle = "#0095DD"; // couleur de la brique
+                ctx.fillStyle = "#ED0000"; // couleur de la brique
                 ctx.fill(); // application de la couleur à la brique
                 ctx.closePath();// fin du dessin de la brique
             }

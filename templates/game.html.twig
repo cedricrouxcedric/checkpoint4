@@ -1,13 +1,17 @@
 {% include 'base.html.twig' %}
 {% include 'navbar.html.twig' %}
+
 {% block body %}
-<p id="score"></p>
+<div class="center">
+ <p id="score"></p>
  <script>
 
  </script>
-<canvas id="myCanvas" width="480" height="320"></canvas>
 
+<canvas id="myCanvas" width="480" height="320"></canvas>
+</div>
 {% endblock %}
+
 {% block javascripts %}
  {{ encore_entry_script_tags('app') }}
  {{ encore_entry_script_tags('jeux') }}
